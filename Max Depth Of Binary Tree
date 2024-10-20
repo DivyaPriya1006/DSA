@@ -1,0 +1,4 @@
+Start at the ground floor (root).
+Explore left and right staircases (left and right subtrees).
+Compare how far each side goes (max of left, right).
+Return the maximum number of steps you took.
