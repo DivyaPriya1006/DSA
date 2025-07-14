@@ -1,0 +1,72 @@
+🔁 Convert Binary Linked List to Integer
+Difficulty: Easy
+Concepts: Bit Manipulation, Linked List Traversal
+
+📋 Problem Statement
+Given the head of a singly linked list where each node contains a binary digit (0 or 1), convert the binary number represented by the linked list into its decimal value.
+
+The binary number is stored with the most significant bit (MSB) at the head.
+
+Convert this binary representation to its decimal integer equivalent.
+
+🧠 Example:
+makefile
+Copy
+Edit
+Input: 1 → 0 → 1
+Binary: 101
+Decimal: 5
+🧰 Approach: Bit Manipulation
+We utilize left shift and bitwise OR operations to build the integer value from the binary digits in the linked list.
+
+✨ Core Idea:
+For each node, do:
+result = (result << 1) | node.val
+
+🛠️ Steps
+Initialize result = 0
+
+Traverse the linked list from head
+
+For each node:
+
+Left shift result by 1 → result << 1
+
+OR with current node's value → | node.val
+
+Move to next node
+
+Return result
+
+🔄 Dry Run Table
+Step	Current head.val	Operation	Result (Decimal)	Result (Binary)	Next Node
+Start	1	Initial value	0	000	1 (next)
+Iteration 1	1	result = (0 << 1) | 1 = 0 | 1	1	001	0 (next)
+Iteration 2	0	result = (1 << 1) | 0 = 2 | 0	2	010	1 (next)
+Iteration 3	1	result = (2 << 1) | 1 = 4 | 1	5	101	null
+End	null	Exit loop	5	101	-
+
+💡 Bitwise Operation Breakdown
+<< (Left Shift): Multiplies the value by 2.
+
+| (Bitwise OR): Adds the current bit to the rightmost position.
+
+Example:
+bash
+Copy
+Edit
+Step: result = (2 << 1) | 1
+      result = 4 | 1 = 5
+✅ Final Result
+After traversal, the decimal value is:
+
+makefile
+Copy
+Edit
+Binary: 1 0 1
+Decimal: (1×2²) + (0×2¹) + (1×2⁰) = 4 + 0 + 1 = 5
+🧮 Complexity Analysis
+Time Complexity: O(N), where N is the number of nodes in the linked list.
+
+Space Complexity: O(1), constant extra space.
+
